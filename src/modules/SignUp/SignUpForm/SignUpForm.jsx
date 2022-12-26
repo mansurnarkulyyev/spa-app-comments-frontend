@@ -1,41 +1,29 @@
 
+import React from 'react'
 import s from "./signUpForm.module.scss";
+import { fields } from "./fields";
+import { initialState } from "./initialState";
+import FormInput from "../../../shared/components/FormInput/FormInput";
+import useForm from '../../../shared/hooks/useForm';
+// import Captcha from './Captcha/Captcha';
 
+function SignUpForm({ onSubmit }) {
+  const { state, handleChange, handleSubmit } = useForm({ onSubmit, initialState });
 
-import React, { useState } from 'react'
+  const { name, email, password } = state;
 
-function SignUpForm() {
-  const [state, setState] = useState({
-    email: "",
-    password: ""
-  });
-
-  const handleChange = ({ target }) => {
-    const { name, value } = target;
-    setState(prevForm => ({
-      ...prevForm,
-      [name]: value
-    }))
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onsubmit({ ...state });
-    setState({
-      email: "",
-      password: ""
-    })
-  }
-  // const { email, password } = state;
 
   return (
+
     <form onSubmit={handleSubmit} className={s.form}>
-      <input value={state.email} name="name" type="text" onChange={handleChange} placeholder="type your name" />
-      <input value={state.email} name="email" type="text" onChange={handleChange} placeholder="type your email" />
-      <input value={state.password} name="password" type="text" onChange={handleChange} placeholder="type your password" />
-      <button>signUp</button>
+      {/* <FormTextField type="checkbox" value={name} onChange={handleChange} {...fields.name} />  */}
+      <FormInput value={name} onChange={handleChange} {...fields.name} />
+      <FormInput value={email} onChange={handleChange} {...fields.email} />
+      <FormInput value={password} onChange={handleChange} {...fields.password} />
+      <button type="submit">Register</button>
     </form>
   )
 }
 
-export default SignUpForm
+export default SignUpForm;
+

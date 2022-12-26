@@ -15,11 +15,13 @@ const UserRoutes = () => {
       <Routes>
         <Route element={<PublicRoute />}>
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/home" element={<HomePage />} />
+
         </Route>
 
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<HomePage />} />
+          {/* <Route path="/home" element={<HomePage />} /> */}
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
