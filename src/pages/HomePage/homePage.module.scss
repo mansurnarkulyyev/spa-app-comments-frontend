@@ -1,0 +1,24 @@
+
+.container {
+  background-color: #f5f6fb;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  width: 280px;
+}
+
+.title {
+  color: black;
+  margin: 0 auto;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+}
