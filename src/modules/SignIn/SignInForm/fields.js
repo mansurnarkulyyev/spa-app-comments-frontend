@@ -1,11 +1,4 @@
 export const fields = {
-    name: {
-        label: "Name",
-        name: "name",
-        type: "text",
-        placeholder: "Type name",
-        required: true,
-    },
     email: {
         label: "Email",
         name: "email",
@@ -19,13 +12,5 @@ export const fields = {
         type: "password",
         placeholder: "Type password",
         required: true,
-    },
-    captcha: {
-        label: "Captcha",
-        name: "captcha",
-        type: "text",
-        placeholder: "Enter Captcha",
-        required: true,
-        autoComplete:"off",
     },
 }

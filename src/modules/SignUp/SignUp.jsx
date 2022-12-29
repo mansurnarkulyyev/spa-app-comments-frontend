@@ -2,8 +2,7 @@
 import SignUpForm from "./SignUpForm";
 import { useDispatch } from "react-redux";
 
-import s from "./signUp.module.scss";
-import {  signUpRequest } from "../../redux/auth/auth-operation";
+import { signUpRequest } from "../../redux/auth/auth-operation";
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -12,7 +11,7 @@ function SignUp() {
     dispatch(signUpRequest(data));
   };
   return (
-    <div className={s.wrapper}>
+    <div style={{ margin: "150px 20px" }}>
       <SignUpForm onSubmit={onSingUp} />
     </div>
   );

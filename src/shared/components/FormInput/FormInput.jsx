@@ -1,16 +1,24 @@
 import React from 'react'
+import { useMemo } from "react";
+import { nanoid } from "@reduxjs/toolkit";
 import s from "./formInput.module.scss";
 
-function FormInput(props) {
-    const { label } = props;
+
+function FormInput({ label, name, value, handleChange, placeholder, required, type }) {
+    const id = useMemo(() => nanoid(), []);
     return (
-        <div className={s.formInput}>
-            <label htmlFor="">{label}</label>
-            <input className={s.item} placeholder={props.placeholder} name={props.name}
-            />
+        <div className={s.form__input__group}>
+            {label && (
+                <label htmlFor={id}>{label}:</label>
+            )}
+            <input type={type} name={name} className={s.form__input} id={id} required={required} value={value} onChange={handleChange} placeholder={placeholder} />
         </div>
     )
 }
 
 export default FormInput;
 
+FormInput.defaultProps = {
+    type: "text",
+    required: false,
+}

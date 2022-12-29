@@ -1,0 +1,21 @@
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.link {
+    text-decoration: none;
+    padding: 8px 25px;
+    font-size: 18px;
+}
+
+.linkActive {
+    composes: link;
+    color: #5c5ced;
+}
+
+.navbar {
+    display: flex;
+    gap: 10px;
+}
