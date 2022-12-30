@@ -1,12 +1,11 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-
 const useForm = ({ onSubmit, initialState }) => {
   const [state, setState] = useState({ ...initialState });
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
-
+ 
   const validateEmail = ({ target }) => {
     const emailRight = String(target.value)
       .toLowerCase()
@@ -34,6 +33,7 @@ const useForm = ({ onSubmit, initialState }) => {
       ...prevState,
       [name]: newValue,
     }));
+   
   };
 
   const handleSubmit = (e) => {

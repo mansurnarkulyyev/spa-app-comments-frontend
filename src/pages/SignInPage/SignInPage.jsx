@@ -1,10 +1,16 @@
 import React from 'react'
-import SignIn from '../../modules/SignIn';
+import { useDispatch } from 'react-redux';
+import SignInForm from '../../modules/SignInForm';
+import { loginRequest } from '../../redux/auth/auth-operation';
 
 function SignInPage() {
+    const dispatch = useDispatch();
+    const onLogin = (data) => {
+        dispatch(loginRequest(data));
+    };
     return (
-        <div>
-            <SignIn />
+        <div style={{ margin: "150px 20px" }}>
+            <SignInForm onSubmit={onLogin} />
         </div>
     )
 }

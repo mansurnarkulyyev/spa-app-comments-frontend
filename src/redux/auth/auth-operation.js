@@ -12,3 +12,27 @@ export const signUpRequest = createAsyncThunk(
         }
     }
 )
+
+export const loginRequest = createAsyncThunk(
+    "auth/login",
+    async(data, {rejectWithValue}) => {
+        try {
+            const result = await api.login(data);
+            return result;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
+)
+
+// export const fetchCaptcha = createAsyncThunk(
+//     "auth/captcha",
+//     async(_, {rejectWithValue}) => {
+//         try {
+//             const result = await api.securityCaptcha();
+//             return result;
+//         } catch (error) {
+//             return rejectWithValue(error);
+//         }
+//     }
+// )
