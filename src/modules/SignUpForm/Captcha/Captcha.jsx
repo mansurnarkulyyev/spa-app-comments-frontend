@@ -64,7 +64,7 @@ function Captcha({ type }) {
 
   return (
     <div className="container">
-      <h4 style={{}}><b> Please enter Captcha </b></h4>
+      <h4><b> Please enter Captcha </b></h4>
       <div>
         <h4 id="captcha" style={{ width: "100px", textAlign: "center", padding: "20px", background: "lightgrey" }}>{captcha}</h4>
         <div >

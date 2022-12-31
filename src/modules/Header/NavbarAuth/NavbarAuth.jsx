@@ -8,9 +8,14 @@ const getClassName = ({ isActive }) => {
 
 const NavbarAuth = () => {
     return (
-        <div>
-            <NavLink to="/login" className={getClassName}>Login</NavLink> | <NavLink to="/register" className={getClassName}>Register</NavLink>
-        </div>
+        <>
+            <NavLink to={"/about"} className={getClassName}>
+                About
+            </NavLink>
+            <div>
+                <NavLink to="/login" className={getClassName}>Login</NavLink> | <NavLink to="/register" className={getClassName}>Register</NavLink>
+            </div>
+        </>
     )
 }
 

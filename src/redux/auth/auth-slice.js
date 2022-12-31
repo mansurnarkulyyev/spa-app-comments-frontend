@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginRequest, signUpRequest} from "./auth-operation";
+import { loginRequest, signUpRequest,logoutRequest, getCurrentRequest } from "./auth-operation";
 
 const initialState = {
     user: {},
@@ -7,7 +7,7 @@ const initialState = {
     isLogin: false,
     loading: false,
     error: null,
-    captcha:{},
+    // captcha:{},
 };
 
 const authSlice = createSlice({
@@ -31,6 +31,21 @@ const authSlice = createSlice({
             store.isLogin = true;
         },
         [loginRequest.rejected]: (store, {payload}) => ({...store, loading: false, error: payload}),//если не успешно зхарегистрировались
+       
+        [logoutRequest.pending]: (store) => ({...store, loading: true, error: null}),
+        [logoutRequest.fulfilled]: () => ({...initialState}),
+        [logoutRequest.rejected]: (store, {payload}) => ({...store, loading: false, error: payload}),//если не успешно зхарегистрировались
+      
+        [getCurrentRequest.pending]: (store) => ({...store, loading: true, error: null}),
+        [getCurrentRequest.fulfilled]: (store, {payload}) => {
+            store.loading = false;
+            store.user = payload.user;//в стор записываем полученные значение с пайлоада(пойлоад это тот же токен и даннае юзера,то что получаем при запроса или при регистрации email,name...)
+            store.token = payload.token;
+            store.isLogin = true;
+        },
+        [getCurrentRequest.rejected]: (store, {payload}) => ({...store, loading: false, error: payload}),//если не успешно зхарегистрировались
+     
+
         // [fetchCaptcha.pending]: (store) => ({...store, loading: true, error: null}),
         // [fetchCaptcha.fulfilled]: (store, {payload}) => {
         //     store.loading = false;
@@ -38,7 +53,8 @@ const authSlice = createSlice({
         //     store.isLogin = true;
         // },
         // [fetchCaptcha.rejected]: (store, {payload}) => ({...store, loading: false, error: payload}),//если не успешно зхарегистрировались
-  } 
+ 
+    } 
 }); 
 
 export default authSlice.reducer;

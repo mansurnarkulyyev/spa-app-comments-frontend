@@ -25,6 +25,18 @@ export const loginRequest = createAsyncThunk(
     }
 )
 
+export const logoutRequest = createAsyncThunk(
+    "auth/logout",
+    async(_, {rejectWithValue}) => {
+        try {
+            const result = await api.logout();
+            return result;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
+)
+
 // export const fetchCaptcha = createAsyncThunk(
 //     "auth/captcha",
 //     async(_, {rejectWithValue}) => {
@@ -36,3 +48,24 @@ export const loginRequest = createAsyncThunk(
 //         }
 //     }
 // )
+
+export const getCurrentRequest = createAsyncThunk(
+  "auth/current",
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      const { auth } = getState();
+      const response = await api.getCurrent(auth.token);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: (_, { getState }) => {
+      const { auth } = getState();
+      if (!auth.token) {
+        return false;
+      }
+    },
+  }
+);

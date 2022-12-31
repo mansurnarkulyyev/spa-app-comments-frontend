@@ -16,16 +16,16 @@ const UserRoutes = () => {
     <Suspense fallback={<p>...loading</p>}>
       <Routes>
         <Route element={<PublicRoute />}>
-          <Route path="/register" element={<SignUpPage />} />
-          <Route path="/login" element={<SignInPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route path="register" element={<SignUpPage />} />
+          <Route path="login" element={<SignInPage />} />
+          {/* <Route path="/home" element={<HomePage />} /> */}
+          <Route path="about" element={<AboutPage />} />
 
         </Route>
 
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Navigate to="/home" />} />
-          {/* <Route path="/home" element={<HomePage />} /> */}
+          <Route path="home" element={<HomePage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
