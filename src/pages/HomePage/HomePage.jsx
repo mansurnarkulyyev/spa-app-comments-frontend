@@ -1,9 +1,9 @@
 
 import CommentContainer from "../../modules/CommentContainer/CommentContainer";
-import Feed from "../../modules/Home/Feed/Feed";
-import Rightbar from "../../modules/Home/Rightbar/Rightbar";
-import Sidebar from "../../modules/Home/Sidebar/Sidebar";
-import s from "./homePage.module.css";
+// import Feed from "../../modules/Home/Feed/Feed";
+// import Rightbar from "../../modules/Home/Rightbar/Rightbar";
+// import Sidebar from "../../modules/Home/Sidebar/Sidebar";
+// import s from "./homePage.module.css";
 
 const HomePage = () => {
   return (
