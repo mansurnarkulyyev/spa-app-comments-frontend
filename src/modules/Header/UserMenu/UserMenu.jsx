@@ -13,7 +13,14 @@ const UserMenu = () => {
     return (
         <div>
             {name} |
-            <button onClick={onLogout} >Logout</button>
+            <button style={{
+                margin: 3,
+                padding: 5,
+                background: "#ff8000",
+                color: "#fff",
+                border: "none",
+                borderRadius: 3,
+            }} onClick={onLogout} >Logout</button>
         </div>
     )
 }

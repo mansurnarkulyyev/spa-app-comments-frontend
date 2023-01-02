@@ -1,45 +1,57 @@
-import React from 'react'
-import s from "./comment-container.module.css";
-import imageIcon from "../Images/gallery.png"
-import emojiIcon from "../Images/cat-face.png"
-// import VideoIcon from "../Images/video.png"
-// import profileimage from "../Images/Profile.png"
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { addPost, fetchPosts, removePost } from '../../redux/post/post-operation';
+import { getPosts } from '../../redux/post/post-selectors';
+import Modal from '../../shared/Modal/Modal';
+import FormCommentContainer from './FormCommentContainer/FormCommentContainer';
+import PostList from './PostList';
+
 
 function CommentContainer() {
+    const [openModal, setOpenModal] = useState(false);
+
+    const { items, loading, error } = useSelector(getPosts);
+
+    console.log(items);
+
+    const dispatch = useDispatch();
+
+    function showModal() {
+        setOpenModal(true);
+    }
+    function closeModal() {
+        setOpenModal(false);
+    }
+
+
+    useEffect(() => {
+        dispatch(fetchPosts());
+    }, [dispatch]);
+
+    const onAddPost = (data) => {
+        dispatch(addPost(data));
+        closeModal();
+    }
+
+    const onRemovePost = (_id) => {
+        dispatch(removePost(_id));
+    }
+
+
     return (
         <div>
-            <div className={s.ContentUploadContainer}>
-                <div style={{ display: "flex", alignItems: "center", padding: 10 }}>
-                    {/* <img src='/' className={s.profileimage} alt="" /> */}
-                    <input type="text" className={s.contentWritingpart} placeholder='Write your real thought.....' />
-                </div>
-                <div style={{ marginLeft: '10px' }}>
-                    {/* {imagePre !== null ? <img src={imagePre} style={{ width: "410px", height: '250px', objectFit: "cover", borderRadius: '10px' }} alt="" /> : VideoPre !== null ?  */}
-                    {/* <video className={s.PostImages} width="500" height="500" controls >
-                        {/* <source src='/' type="video/mp4" /> */}
-                    {/* </video> : '' */}
-                    {/* // } */}
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <div>
-                            <label htmlFor='file'>
-                                <img src={`${imageIcon}`} className={s.icons} alt="" />
-                                <input type="file" name="file" id="file" style={{ display: "none" }} />
-                            </label>
-                            <img src={`${emojiIcon}`} className={s.icons} alt="" />
-                            {/* <label htmlFor='file2'>
-                                <img src={`${VideoIcon}`} className={s.icons} alt="" />
-                                <input type="file" name="file2" id="file2" style={{ display: "none" }} />
-                            </label> */}
-                        </div>
-                        <button cla style={{ height: "30px", marginRight: "12px", marginTop: "40px", paddingLeft: "20px", paddingRight: "20px", paddingTop: 6, paddingBottom: 6, border: "none", backgroundColor: "#ff8000", color: "white", borderRadius: "5px", cursor: "pointer" }} >Post</button>
-                    </div>
-                </div>
-            </div>
+            <button onClick={showModal}>Get Started</button>
+            {openModal && (<Modal >
+                <FormCommentContainer closeModal={closeModal} onSubmit={onAddPost} />
+            </Modal>
+            )}
 
-
+            <PostList posts={items} removePost={onRemovePost} />
         </div>
     )
 }
 
 export default CommentContainer;
+
+
 

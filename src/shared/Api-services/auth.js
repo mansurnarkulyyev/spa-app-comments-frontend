@@ -1,9 +1,4 @@
-
-import axios from "axios";
-
-export const instance = axios.create({
-  baseURL: "http://localhost:3007/api",
-});
+import { instance } from "./api";
 
 const setToken = (token = "") => {
   if (token) {

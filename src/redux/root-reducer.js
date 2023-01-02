@@ -3,6 +3,7 @@ import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import authReducer from "./auth/auth-slice";
+import postReducer from "./post/post-slice";
 
 const authPersistConfig = {//что бы созранить токен юзера в локалстороже 
   key: "token",
@@ -14,6 +15,7 @@ const authPersistReducer = persistReducer(authPersistConfig, authReducer);
 
 const rootReducer = combineReducers({
   auth: authPersistReducer,
+  posts: postReducer,
  
 });
 
