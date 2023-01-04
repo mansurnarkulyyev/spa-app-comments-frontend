@@ -12,8 +12,6 @@ function CommentContainer() {
 
     const { items, loading, error } = useSelector(getPosts);
 
-    // console.log(items);
-
     const dispatch = useDispatch();
 
     function showModal() {
@@ -22,7 +20,6 @@ function CommentContainer() {
     function closeModal() {
         setOpenModal(false);
     }
-
 
     useEffect(() => {
         dispatch(fetchPosts());
@@ -36,7 +33,6 @@ function CommentContainer() {
     const onRemovePost = (_id) => {
         dispatch(removePost(_id));
     }
-
 
     return (
         <div>

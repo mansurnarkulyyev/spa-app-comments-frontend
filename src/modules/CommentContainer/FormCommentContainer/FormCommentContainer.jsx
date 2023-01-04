@@ -8,8 +8,9 @@ import imageIcon from "../../Images/gallery.png";
 // import useForm from "../../../shared/hooks/useForm";
 // import { initialState } from "./initialState";
 // import { addPost } from "../../../redux/post/post-operation";
-import { addPost } from "../../../shared/Api-services/posts";
+// import { addPost } from "../../../shared/Api-services/posts";
 import FormInput from "../../../shared/components/FormInput/FormInput";
+import { addPost } from "../../../redux/post/post-operation";
 // import profileimage from "../../Images/Profile.png"
 
 function FormCommentContainer({ closeModal }) {
@@ -24,7 +25,7 @@ function FormCommentContainer({ closeModal }) {
         let data = new FormData(e.target);
         const result = Object.fromEntries(data.entries())
         await addPost(result)
-        console.log("submit");
+        // console.log("submit");
         closeModal();
     }
 

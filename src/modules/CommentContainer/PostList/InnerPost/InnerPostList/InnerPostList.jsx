@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-const api_Url = "http://localhost:3007/api";
+const BASE_URL = "http://localhost:3007";
 
 function InnerPostList({ comments }) {
+    // console.log(comments);
     const elements = comments.map((item) => <li key={item._id}>
         {item.comments.comment}
         <p>{item.owner.name}</p>
         {/* <img src={owner.avatarURL} alt=" avatarURL" /> */}
-        <img src={`${api_Url}/${item.owner.avatarURL}`} alt="img" />
+        <img src={`${BASE_URL}/${item.owner.avatarURL}`} alt="img" />
     </li>
     );
     return (

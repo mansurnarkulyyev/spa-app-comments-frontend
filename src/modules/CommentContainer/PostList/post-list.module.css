@@ -5,7 +5,7 @@
 }
 
 .item {
-    border: 1px solid;
+    background: darkseagreen;
         width: 500px;
         display: flex;
         padding: 5px;

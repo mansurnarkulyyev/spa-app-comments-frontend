@@ -1,1 +1,1 @@
-export {default} from "./InnerPost";
+export {default} from "./InnerPostList";

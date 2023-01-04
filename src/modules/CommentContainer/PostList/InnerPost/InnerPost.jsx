@@ -7,9 +7,9 @@ import FormInput from '../../../../shared/components/FormInput/FormInput'
 // import { initialState } from "./initialState";
 
 
-function SinglePost({ closeModal, comments }) {
+function SinglePost({ closeModal }) {
 
-    console.log(comments);
+    // console.log(comments);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,18 +20,21 @@ function SinglePost({ closeModal, comments }) {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label >
-                Comment
-                <FormInput type="text"
-                    name="comment"
-                    required
-                    placeholder=" " />
-            </label>
-            <button type="submit">
-                Submit
-            </button>
-        </form>
+        <>
+            <form onSubmit={handleSubmit}>
+                <label >
+                    Comment
+                    <FormInput type="text"
+                        name="comment"
+                        required
+                        placeholder=" " />
+                </label>
+                <button type="submit">
+                    Submit
+                </button>
+            </form>
+        </>
+
     )
 }
 
