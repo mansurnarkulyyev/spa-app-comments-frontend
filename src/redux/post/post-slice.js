@@ -35,9 +35,8 @@ const postsSlice = createSlice({
             store.error = null;
         },
         [removePost.fulfilled]: (store, {payload}) => {
-            store.items = store.items.filter(item => item._id !== payload);
+            store.items = store.items.filter(item => item._id !== payload._id);
             store.loading = false;
-            store.error = null;
         },
         [removePost.rejected]: (store, {payload}) => {
             store.loading = false;

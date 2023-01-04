@@ -46,9 +46,3 @@ function SignUpForm({ onSubmit }) {
 export default SignUpForm;
 
 
-
-//FormInput inside
-// <div className={s.form__input__group}>
-//   <label htmlFor={nameId}>Password:</label>
-//   <input type="password" className={s.form__input} id={nameId} required value={name} onChange={handleChange} placeholder="Password" />
-// </div> 

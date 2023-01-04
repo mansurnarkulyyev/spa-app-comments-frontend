@@ -5,14 +5,14 @@ import { getPosts } from '../../redux/post/post-selectors';
 import Modal from '../../shared/Modal/Modal';
 import FormCommentContainer from './FormCommentContainer/FormCommentContainer';
 import PostList from './PostList';
-
+import s from "../CommentContainer/FormCommentContainer/comment-container.module.scss"
 
 function CommentContainer() {
     const [openModal, setOpenModal] = useState(false);
 
     const { items, loading, error } = useSelector(getPosts);
 
-    console.log(items);
+    // console.log(items);
 
     const dispatch = useDispatch();
 
@@ -40,13 +40,18 @@ function CommentContainer() {
 
     return (
         <div>
-            <button onClick={showModal}>Get Started</button>
-            {openModal && (<Modal >
+            {loading && <p>...loading</p>}
+            <button className={s.modal__btn} onClick={showModal}>Get Started</button>
+            {openModal && (<Modal closeModal={closeModal}>
                 <FormCommentContainer closeModal={closeModal} onSubmit={onAddPost} />
             </Modal>
             )}
 
-            <PostList posts={items} removePost={onRemovePost} />
+            {items.length ? <PostList posts={items} removePost={onRemovePost} />
+                : <h1 style={{ textAlign: 'center' }}>Posts Not fount</h1>
+            }
+
+            {error && error.message}
         </div>
     )
 }

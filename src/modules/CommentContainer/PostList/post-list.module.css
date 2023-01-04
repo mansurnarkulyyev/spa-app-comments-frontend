@@ -1,8 +1,32 @@
+.wrap{
+    gap: 10px;
+        display: flex;
+        flex-direction: column;
+}
+
 .item {
-    margin-bottom: 15px;
+    border: 1px solid;
+        width: 500px;
+        display: flex;
+        padding: 5px;
+        flex-direction: column;
+    list-style: nones;
+    border-radius: 5px;
 }
 
 .btn {
-    margin-left: 10px;
+display: block;
+    margin-left: auto;
+    /* margin-right: auto; */
+    padding: 2px 10px;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.87;
+    letter-spacing: 0.06em;
+    color: var(--white-color);
+    border: transparent;
+    background: #188ce8;
+    box-shadow: 0px 4px 4px var(--modal-btn-box-sha);
+    border-radius: 4px;
     cursor: pointer;
 }

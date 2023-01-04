@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
 import PostListItem from "./PostListItem";
+import s from "./post-list.module.css";
 
 const PostList = ({ posts, removePost }) => {
     const elements = posts.map((item) => <PostListItem removePost={removePost} key={item._id} {...item} />);
-    console.log(posts);
+    // console.log(posts);
     return (
-        <ul>
+        <ul className={s.wrap}>
             {elements}
         </ul>
     )

@@ -19,15 +19,15 @@ const Modal = ({ closeModal, children }) => {
         document.addEventListener("keydown", handleClose);
 
         return () => document.removeEventListener("keydown", handleClose)
-    }, []);
+    });
 
     return createPortal(
         (<div className={styles.overlay} onClick={handleClose}>
-            {/* <div className={styles.modal}> */}
-            {/* <span onClick={closeModal} className={styles.close}>x
-            </span> */}
-            {children}
-            {/* </div> */}
+            <div className={styles.modal}>
+                {/* <span onClick={closeModal} className={styles.close}>x
+                </span> */}
+                {children}
+            </div>
         </div>
         ),
         modalRoot

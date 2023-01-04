@@ -41,6 +41,32 @@ export const addPost = createAsyncThunk(
 )
 
 
+//addInnerPost
+export const addInnerPost = createAsyncThunk(
+    "posts/add",
+    async(data, {rejectWithValue}) => {
+        try {
+            const result = await api.addInnerPost(data);
+            return result;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    },
+    {
+        condition: (data, {getState}) => {
+            const {posts} = getState();
+            const {comment, user} = data;
+            const isDublicate = posts.items.find(item => item.comment === comment && item.user === user);
+            if(isDublicate) {
+                alert(`${comment}. ${user} is already exist`);
+                return false;
+            }
+        }
+    }
+)
+
+
+
 //delete
 export const removePost = createAsyncThunk(
     "posts/remove",

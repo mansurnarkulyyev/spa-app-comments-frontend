@@ -5,7 +5,7 @@ const useForm = ({ onSubmit, initialState }) => {
   const [state, setState] = useState({ ...initialState });
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPassword, setErrorPassword] = useState("");
- 
+
   const validateEmail = ({ target }) => {
     const emailRight = String(target.value)
       .toLowerCase()
@@ -33,7 +33,6 @@ const useForm = ({ onSubmit, initialState }) => {
       ...prevState,
       [name]: newValue,
     }));
-   
   };
 
   const handleSubmit = (e) => {
@@ -71,3 +70,5 @@ useForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   initialState: PropTypes.object.isRequired,
 };
+
+
