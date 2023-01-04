@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { addPost, fetchPosts, removePost } from '../../redux/post/post-operation';
+import { fetchPosts, removePost } from '../../redux/post/post-operation';
 import { getPosts } from '../../redux/post/post-selectors';
 import Modal from '../../shared/Modal/Modal';
 import FormCommentContainer from './FormCommentContainer/FormCommentContainer';
@@ -25,11 +25,6 @@ function CommentContainer() {
         dispatch(fetchPosts());
     }, [dispatch]);
 
-    const onAddPost = (data) => {
-        dispatch(addPost(data));
-        closeModal();
-    }
-
     const onRemovePost = (_id) => {
         dispatch(removePost(_id));
     }
@@ -39,7 +34,7 @@ function CommentContainer() {
             {loading && <p>...loading</p>}
             <button className={s.modal__btn} onClick={showModal}>Get Started</button>
             {openModal && (<Modal closeModal={closeModal}>
-                <FormCommentContainer closeModal={closeModal} onSubmit={onAddPost} />
+                <FormCommentContainer closeModal={closeModal} />
             </Modal>
             )}
 
