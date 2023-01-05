@@ -12,7 +12,6 @@ function SignUpPage() {
     const dispatch = useDispatch();
     const onSingUp = (data) => {
         dispatch(signUpRequest(data));//data данные из форма
-        // dispatch(fetchCaptcha(data));
     };
 
     if (userIsLogin) {

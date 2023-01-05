@@ -4,7 +4,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import PublicRoute from "./shared/components/PublicRoute/PublicRoute.jsx";
 import PrivateRoute from "./shared/components/PrivateRoute/PrivateRoute.jsx";
 
-
 const SignUpPage = lazy(() => import("./pages/SignUpPage"));
 const SignInPage = lazy(() => import("./pages/SignInPage/SignInPage.jsx"));
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -18,7 +17,6 @@ const UserRoutes = () => {
         <Route element={<PublicRoute />}>
           <Route path="register" element={<SignUpPage />} />
           <Route path="login" element={<SignInPage />} />
-          {/* <Route path="/home" element={<HomePage />} /> */}
           <Route path="about" element={<AboutPage />} />
 
         </Route>

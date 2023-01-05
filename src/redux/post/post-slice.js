@@ -23,9 +23,7 @@ const postsSlice = createSlice({
         //add poost
         [addPost.pending]: (store) => ({...store, loading: true, error: null}),
         [addPost.fulfilled]: (store, {payload}) => {
-            console.log(payload);
             store.items.push(payload);
-            console.log(store.items)
             store.loading = false;
         },
         [addPost.rejected]: (store, {payload}) => ({...store, loading: false, error: payload}),
@@ -38,9 +36,6 @@ const postsSlice = createSlice({
         },
         [removePost.fulfilled]: (store, {payload}) => {
             store.items= store.items.filter(item => item._id !== payload);
-             // store.items= store.items.findIndex(item => item._id !== payload);
-             console.log(payload);
-            console.log(store.items);
             store.loading= false;
         },
 

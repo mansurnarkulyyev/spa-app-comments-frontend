@@ -1,21 +1,13 @@
 import React from 'react'
-// import { useDispatch, useSelector } from 'react-redux';
-// import { addInnerPost, fetchPosts } from '../../../../redux/post/post-operation';
 // import { getPosts } from '../../../../redux/post/post-selectors';
 import FormInput from '../../../../shared/components/FormInput/FormInput'
-// import useForm from '../../../../shared/hooks/useForm';
+import s from '../../PostList/post-list.module.css';
 // import { initialState } from "./initialState";
-
 
 function SinglePost({ closeModal }) {
 
-    // console.log(comments);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // await addPost(result)
-        console.log("submit");
         closeModal();
     }
 
@@ -29,7 +21,7 @@ function SinglePost({ closeModal }) {
                         required
                         placeholder=" " />
                 </label>
-                <button type="submit">
+                <button className={s.btn} type="submit">
                     Submit
                 </button>
             </form>

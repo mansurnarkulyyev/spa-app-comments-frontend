@@ -20,12 +20,5 @@ export const fields = {
         placeholder: "Type password",
         required: true,
     },
-    // captcha: {
-    //     label: "Captcha",
-    //     name: "username",
-    //     type: "text",
-    //     placeholder: "Enter Captcha",
-    //     required: true,
-    //     autoComplete:"off",
-    // },
+   
 }
