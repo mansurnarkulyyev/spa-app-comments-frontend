@@ -10,7 +10,7 @@ import s from "../CommentContainer/FormCommentContainer/comment-container.module
 function CommentContainer() {
     const [openModal, setOpenModal] = useState(false);
 
-    const { items, loading, error } = useSelector(getPosts);
+    const { items, tags, comments, loading, error } = useSelector(getPosts);
 
     const dispatch = useDispatch();
 
@@ -38,7 +38,7 @@ function CommentContainer() {
             </Modal>
             )}
 
-            {items.length ? <PostList posts={items} removePost={onRemovePost} />
+            {items.length ? <PostList posts={items} tags={tags} comments={comments} loading={loading} error={error} removePost={onRemovePost} />
                 : <h1 style={{ textAlign: 'center' }}>Posts Not fount</h1>
             }
 

@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { IconBtn } from './IconBtn/IconBtn';
-import { FaEdit, FaHeart, FaReply, FaTrash } from "react-icons/fa";
+import { FaEdit, FaHeart, FaRegEye, FaReply, FaTrash } from "react-icons/fa";
 import s from "./inner-post.module.css"
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
     dateStyle: "medium",
     timeStyle: "short",
 });
+
 // const BASE_URL = "http://localhost:3007";
 
 function InnerPostList({ comments }) {
     const [areChildrenHidden, setAreChildrenHidden] = useState(false)
-
 
     const elements = comments.map((item) =>
         <li className={s.comment} key={item._id}>
@@ -19,19 +19,19 @@ function InnerPostList({ comments }) {
                 <span className={s.name}>{item.owner.name}</span>
                 <span className={s.date}>{dateFormatter.format(Date.parse(item.createdAt))}</span>
             </div>
-            <div className={s.message}>{item.comments.comment}
-                <p>{item.owner.name}</p>
-                {/* < img src={`${BASE_URL}/${item.owner.avatarURL}`} alt="img" /> */}
-            </div>
+            {/* <div className={s.message}>{item.comments.comment} */}
+            {/* <p>{item.owner.name}</p> */}
+            {/* < img src={`${BASE_URL}/${item.owner.avatarURL}`} alt="img" /> */}
+            {/* </div> */}
             <div className={s.footer}>
                 <IconBtn Icon={FaHeart} aria-label="Like">
                     3
                 </IconBtn>
                 <IconBtn Icon={FaReply} aria-label="Reply" />
                 <IconBtn Icon={FaEdit} aria-label="Edit" />
+                <IconBtn Icon={FaRegEye} aria-label="IoEyeSharp" />
                 <IconBtn Icon={FaTrash} aria-label="Delete" color="danger" />
             </div>
-
 
             {/* {comments?.length > 0 && ( */}
             <>
@@ -43,15 +43,14 @@ function InnerPostList({ comments }) {
                         {/* <CommentList comments={childComments} /> */}
                     </div>
                 </div>
+
                 <button
                     className={`btn mt-1 ${!areChildrenHidden ? s.hide : ""}`}
-                    onClick={() => setAreChildrenHidden(false)}
-                >
+                    onClick={() => setAreChildrenHidden(false)}>
                     Show Replies
                 </button>
             </>
-
-        </li >
+        </li>
     );
     return (
         <ul >
@@ -61,7 +60,6 @@ function InnerPostList({ comments }) {
 }
 
 export default InnerPostList
-
 
 
 InnerPostList.defaultProps = {

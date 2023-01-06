@@ -4,6 +4,8 @@ import {addPost, fetchPosts, removePost} from "./post-operation";
 
 const initialState = {
     items: [],
+    tags:[],
+    comments:[],
     loading: false,
     error: null
 };
