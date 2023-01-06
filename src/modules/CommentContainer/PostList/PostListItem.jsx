@@ -9,7 +9,7 @@ import { FaRegEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 // import { getUser } from "../../../redux/auth/auth-selectors";
 
-const BASE_URL = "http://localhost:3007"
+const BASE_URL = "https://spa-app-comments-backend-production-825f.up.railway.app"
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
     dateStyle: "medium",
     timeStyle: "short",
@@ -51,7 +51,7 @@ const PostListItem = ({ _id, text, user, owner, createdAt, loading, error, disLi
                     </li>
                 ))}
             </ul>
-            
+
             <section>
                 {loading && <p>...loading</p>}
                 <button onClick={showModal}>Add comment</button>

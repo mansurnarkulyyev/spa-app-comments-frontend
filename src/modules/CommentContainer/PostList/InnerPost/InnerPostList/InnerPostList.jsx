@@ -8,7 +8,7 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
     timeStyle: "short",
 });
 
-// const BASE_URL = "http://localhost:3007";
+// const BASE_URL = "https://spa-app-comments-backend-production-825f.up.railway.app";
 
 function InnerPostList({ comments }) {
     const [areChildrenHidden, setAreChildrenHidden] = useState(false)
